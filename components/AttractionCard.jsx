@@ -1,16 +1,41 @@
+import Link from 'next/link';
+
 export default function AttractionCard({ attraction }) {
-  const { title, image, type } = attraction.fields;
+  const { title, summary, destination, state, image, slug } = attraction.fields;
+
   return (
-    <div className="border rounded shadow p-4">
+    <Link
+          href={`/${state?.fields.slug}/${destination?.fields.slug}/${slug}`}
+      className="block border rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 bg-white"
+    >
       {image && (
-        <img
-          src={image.fields.file.url}
-          alt={title}
-          className="w-full h-48 object-cover rounded"
-        />
+        <div className="h-48 w-full overflow-hidden">
+          <img
+            src={image.fields.file.url}
+            alt={title}
+            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+          />
+        </div>
       )}
-      <h3 className="text-lg font-bold mt-2">{title}</h3>
-      <p className="mt-1 italic">{type}</p>
-    </div>
+
+      <div className="p-4 flex flex-col">
+        <h3 className="text-xl font-bold">{title}</h3>
+
+        {/* Location line */}
+        {(destination || state) && (
+          <p className="mt-1 text-gray-500 text-xs uppercase tracking-wide">
+            📍 {destination?.fields.title}
+            {destination && state && ', '}
+            {state?.fields.title}
+          </p>
+        )}
+
+        <p className="mt-2 text-gray-700 flex-grow">{summary}</p>
+
+        <span className="mt-4 text-blue-600 font-medium hover:underline">
+          Explore →
+        </span>
+      </div>
+    </Link>
   );
 }
