@@ -1,1 +1,43 @@
 @import "tailwindcss";
+
+/* Base light/dark colors */
+:root {
+  --bg-color: #f9fafb; /* body bg */
+  --text-color: #1f2937;
+  --card-bg: #ffffff;
+  --card-border: #e5e7eb;
+  --card-text: #1f2937;
+  --subtitle-text: #6b7280;
+  --primary-color: #0F4C81;
+}
+
+html.dark {
+  --bg-color: #111827;
+  --text-color: #f9fafb;
+  --card-bg: #1f2937;
+  --card-border: #374151;
+  --card-text: #f9fafb;
+  --subtitle-text: #9ca3af;
+  --primary-color: #0F4C81;
+}
+
+/* Smooth transitions for everything */
+body,
+div,
+p,
+span,
+h1,
+h2,
+h3,
+input,
+button {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.hero-gradient {
+  background: linear-gradient(90deg, #ffffff98 15%, #1f293700 60%);
+}
+
+html.dark .hero-gradient {
+  background: linear-gradient(90deg, #000000c4 15%, #1f293700 60%);
+}

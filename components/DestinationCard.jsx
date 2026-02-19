@@ -6,9 +6,12 @@ export default function DestinationCard({ destination }) {
   return (
     <Link
       href={`/${state?.fields.slug}/${slug}`}
-      className="block border rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 bg-white"
+      className="block rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-[1.02]"
+      style={{
+        backgroundColor: 'var(--card-bg)',
+        border: '1px solid var(--card-border)',
+      }}
     >
-      {/* Fixed image container */}
       {heroImage && (
         <div className="h-48 md:h-56 w-full overflow-hidden">
           <img
@@ -19,20 +22,18 @@ export default function DestinationCard({ destination }) {
         </div>
       )}
 
-      {/* Card content */}
       <div className="p-4 flex flex-col">
-        <h2 className="text-xl font-bold">{title}</h2>
+        <h2 className="text-xl font-bold" style={{ color: 'var(--card-text)' }}>{title}</h2>
 
-        {/* Styled state text (not separately clickable) */}
         {state && (
-          <p className="mt-1 text-gray-500 text-xs uppercase tracking-wide">
+          <p className="mt-1 text-xs uppercase tracking-wide" style={{ color: 'var(--subtitle-text)' }}>
             📍 {state.fields.title}
           </p>
         )}
 
-        <p className="mt-2 text-gray-700 flex-grow">{summary}</p>
+        <p className="mt-2 flex-grow" style={{ color: 'var(--card-text)' }}>{summary}</p>
 
-        <span className="mt-4 text-blue-600 font-medium hover:underline">
+        <span className="mt-4 font-medium hover:underline" style={{ color: 'var(--primary-color)' }}>
           Learn More →
         </span>
       </div>
