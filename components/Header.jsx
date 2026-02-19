@@ -79,12 +79,6 @@ export default function Header({ darkMode, toggleDarkMode }) {
           >
             Destinations
           </Link>
-          <Link
-            href="/about"
-            className={`transition hover:text-blue-500 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}
-          >
-            About
-          </Link>
         </nav>
 
         {/* DARK MODE TOGGLE */}
