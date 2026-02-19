@@ -10,6 +10,7 @@ module.exports = {
         primary: '#0F4C81',
         accent: '#2A9D8F',
         highlight: '#E9C46A',
+        tan: '#E6CC94',
       },
       fontFamily: {
         sans: ['var(--font-inter)'],
