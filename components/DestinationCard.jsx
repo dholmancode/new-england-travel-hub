@@ -33,7 +33,7 @@ export default function DestinationCard({ destination }) {
 
         <p className="mt-2 flex-grow" style={{ color: 'var(--card-text)' }}>{summary}</p>
 
-        <span className="mt-4 font-medium hover:underline" style={{ color: 'var(--primary-color)' }}>
+        <span className="mt-4 font-medium hover:underline" style={{ color: '#2e9588' }}>
           Learn More →
         </span>
       </div>

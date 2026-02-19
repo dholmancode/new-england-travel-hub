@@ -32,24 +32,25 @@ export default function Map() {
 
   return (
     <div className="w-full max-w-3xl mx-auto relative">
-      {tooltip.visible && (
-        <div
-          style={{
-            position: 'fixed',
-            top: tooltip.y,
-            left: tooltip.x,
-            backgroundColor: 'rgba(0,0,0,0.75)',
-            color: 'white',
-            padding: '10px 20px',
-            borderRadius: '100px',
-            pointerEvents: 'none',
-            fontSize: '1.2rem',
-            zIndex: 1000,
-          }}
-        >
-          {tooltip.text}
-        </div>
-      )}
+ {tooltip.visible && (
+  <div
+    style={{
+      position: 'fixed', // keeps it relative to viewport
+      backgroundColor: 'rgba(0,0,0,0.75)',
+      color: 'white',
+      padding: '5px 10px',
+      borderRadius: '10px',
+      pointerEvents: 'none',
+      marginTop: '90px',
+      fontSize: '1.7rem',
+      zIndex: 1000,
+      fontFamily: 'var(--font-playfair)',
+      fontWeight: 'bold',
+    }}
+  >
+    {tooltip.text}
+  </div>
+)}
 
       <svg viewBox="0 0 1383 1854" className="w-120 h-auto">
         {/* MASSACHUSETTS */}

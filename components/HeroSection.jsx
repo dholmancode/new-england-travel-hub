@@ -1,40 +1,47 @@
 'use client';
 
-import Map from './Map'; // make sure this points to your Map component
+import Map from './Map';
 
-export default function HeroSection({ title, subtitle, images = [], image }) {
-  // Find the "Hero" image in your images array
-  const heroImage = images.find(
-    (img) => img.fields?.title === "Hero"
-  ) || image;
+export default function HeroSection({ title, subtitle, images = [], image, states }) {
+
+  const heroImage = Array.isArray(images) && images.length
+    ? images.find(img => img.fields?.title === "Hero")
+    : image;
 
   const getUrl = (img) => {
     if (!img) return "/images/placeholder.jpg";
-    const url =
+    if (typeof img === "string") return img;
+    const contentfulUrl =
       img?.fields?.media?.fields?.file?.url ||
-      img?.fields?.file?.url ||
-      (typeof img === "string" ? img : "/images/placeholder.jpg");
-    return url.startsWith("http") ? url : `https:${url}`;
+      img?.fields?.file?.url;
+    if (!contentfulUrl) return "/images/placeholder.jpg";
+    return contentfulUrl.startsWith("http")
+      ? contentfulUrl
+      : `https:${contentfulUrl}`;
   };
 
   const imageUrl = getUrl(heroImage);
 
   return (
-    <div className="relative w-full md:h-[720px] h-[320px] overflow-hidden">
-      {/* Hero Image */}
+    <div className="relative w-full md:h-[720px] h-[480px] overflow-hidden">
+      {/* Background Image */}
       <div
         className="absolute inset-0 bg-center bg-cover"
         style={{ backgroundImage: `url(${imageUrl})` }}
       />
 
-      {/* Gradient overlay */}
+      {/* Gradient Overlay */}
       <div className="absolute inset-0 hero-gradient" />
 
-      {/* Content Container */}
-      <div className="absolute inset-0 z-20 flex flex-col md:flex-row items-center justify-center md:px-30">
-        {/* Text on Left */}
-        <div className="lg:w-1/2 text-center md:text-left max-w-lg">
-          <h1 className="text-nowrap text-4xl md:text-6xl font-bold drop-shadow-lg" style={{ color: "var(--text-color)" }}>
+      {/* Content */}
+      <div className="relative z-20 flex flex-col md:flex-row items-center justify-center h-full px-6 md:px-16 lg:px-24">
+        
+        {/* Hero Text */}
+        <div className="md:w-1/2 text-left max-w-lg">
+          <h1
+            className="text-4xl md:text-6xl font-bold drop-shadow-lg leading-tight"
+            style={{ color: "var(--text-color)" }}
+          >
             {title}
           </h1>
           {subtitle && (
@@ -47,10 +54,13 @@ export default function HeroSection({ title, subtitle, images = [], image }) {
           )}
         </div>
 
-        {/* Map on Right */}
-        <div className="hero-map md:w-1/2 w-full h-[400px] md:h-[500px] mt-10 md:mt-0">
-          <Map />
+        {/* Map Floating on Right */}
+        <div className="hidden md:block md:w-1/2 flex">
+  <div className="hidden md:block absolute top-1/2 right-0 transform -translate-y-1/2 w-[450px] h-[600px]">
+            <Map states={states} />
+          </div>
         </div>
+
       </div>
     </div>
   );

@@ -72,42 +72,48 @@ export default function Header({ darkMode, toggleDarkMode }) {
             )}
           </div>
 
-          {/* Other Links */}
+
           <Link
             href="/destinations"
             className={`transition hover:text-blue-500 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}
           >
             Destinations
           </Link>
+                    {/* Other Links */}
+          <Link
+            href="/about"
+            className={`transition hover:text-blue-500 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}
+          >
+            About
+          </Link>
         </nav>
 
         {/* DARK MODE TOGGLE */}
-{/* DARK MODE TOGGLE */}
-<div className="hidden md:flex items-center">
-  <button
-    onClick={toggleDarkMode}
-    className={`relative w-20 h-10 flex items-center rounded-full p-1 transition-all duration-500 ease-in-out ${
-      darkMode ? 'bg-gray-600' : 'bg-gray-300'
-    }`}
-  >
-    {/* Sliding Knob */}
-    <div
-      className={`absolute top-1 left-1 w-8 h-8 rounded-full bg-white shadow-lg transform transition-transform duration-500 ease-in-out ${
-        darkMode ? 'translate-x-10' : 'translate-x-0'
-      }`}
-      style={{
-        boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
-      }}
-    >
-      <img
-        src={darkMode ? '/images/LightToggle.svg' : '/images/DarkToggle.svg'}
-        alt={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-        className="w-5 h-5 m-1.5"
-        style={{ transition: 'all 0.5s ease-in-out' }}
-      />
-    </div>
-  </button>
-</div>
+        <div className="hidden md:flex items-center">
+          <button
+            onClick={toggleDarkMode}
+            className={`relative w-20 h-10 flex items-center rounded-full p-1 transition-all duration-500 ease-in-out ${
+              darkMode ? 'bg-gray-600' : 'bg-gray-300'
+            }`}
+          >
+            {/* Sliding Knob */}
+            <div
+              className={`absolute top-1 left-1 w-8 h-8 rounded-full bg-white shadow-lg transform transition-transform duration-500 ease-in-out ${
+                darkMode ? 'translate-x-10' : 'translate-x-0'
+              }`}
+              style={{
+                boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
+              }}
+            >
+              <img
+                src={darkMode ? '/images/LightToggle.svg' : '/images/DarkToggle.svg'}
+                alt={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+                className="w-5 h-5 m-1.5"
+                style={{ transition: 'all 0.5s ease-in-out' }}
+              />
+            </div>
+          </button>
+        </div>
 
         {/* MOBILE MENU BUTTON */}
         <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
@@ -157,29 +163,32 @@ export default function Header({ darkMode, toggleDarkMode }) {
             )}
           </div>
 
+          <Link href="/about" onClick={() => setMenuOpen(false)}>
+            About
+          </Link>
           <Link href="/destinations" onClick={() => setMenuOpen(false)}>
             Destinations
           </Link>
 
-<button
-  onClick={toggleDarkMode}
-  className={`relative w-16 h-8 flex items-center rounded-full p-1 transition-all duration-300 ${
-    darkMode ? 'bg-gray-700' : 'bg-gray-300'
-  }`}
->
-  <div
-    className={`absolute top-1 left-1 w-6 h-6 rounded-full bg-white shadow-md transform transition-transform duration-300 ${
-      darkMode ? 'translate-x-8' : 'translate-x-0'
-    }`}
-  >
-    <img
-      src={darkMode ? '/images/LightToggle.svg' : '/images/DarkToggle.svg'}
-      alt={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-      className="w-4 h-4 m-1"
-    />
-  </div>
-</button>
-
+          {/* Mobile Dark Mode Toggle */}
+          <button
+            onClick={toggleDarkMode}
+            className={`relative w-16 h-8 flex items-center rounded-full p-1 transition-all duration-300 ${
+              darkMode ? 'bg-gray-700' : 'bg-gray-300'
+            }`}
+          >
+            <div
+              className={`absolute top-1 left-1 w-6 h-6 rounded-full bg-white shadow-md transform transition-transform duration-300 ${
+                darkMode ? 'translate-x-8' : 'translate-x-0'
+              }`}
+            >
+              <img
+                src={darkMode ? '/images/LightToggle.svg' : '/images/DarkToggle.svg'}
+                alt={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+                className="w-4 h-4 m-1"
+              />
+            </div>
+          </button>
         </div>
       )}
     </header>

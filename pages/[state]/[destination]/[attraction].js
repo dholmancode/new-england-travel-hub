@@ -27,7 +27,8 @@ export default function AttractionDetail({ attraction, otherAttractions }) {
       />
 
       <div className="max-w-4xl mx-auto p-6">
-        {summary && <p className="mb-4 text-lg text-gray-700">{summary}</p>}
+        {summary &&     <p className="mb-4 text-lg" style={{ color: 'var(--text-color)' }}>
+{summary}</p>}
         {description && <RichTextRenderer richText={description} />}
 
         <div className="mt-6">

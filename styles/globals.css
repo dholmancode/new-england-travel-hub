@@ -1,9 +1,14 @@
 @import "tailwindcss";
 
 
-p {
-  font-family:'Courier New', Courier, monospace
+body {
+  font-family: var(--font-inter), sans-serif;
 }
+
+h1, h2, h3 {
+  font-family: var(--font-playfair), serif;
+}
+
 
 /* Base light/dark colors */
 :root {
@@ -12,7 +17,7 @@ p {
   --card-bg: #ffffff;
   --card-border: #e5e7eb;
   --card-text: #1f2937;
-  --subtitle-text: #6b7280;
+  --subtitle-text: #171717;
   --primary-color: #0F4C81;
 }
 
@@ -107,4 +112,14 @@ html.dark .hero-gradient {
     transform: scale(1.05);
     filter: drop-shadow(0 0 10px rgba(235, 181, 64, 0.9));
   }
+}
+
+
+#state-select {
+max-width: 400px;
+font-weight: 800;
+}
+
+#state-select:hover {
+cursor: pointer;
 }
