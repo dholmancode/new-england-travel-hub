@@ -91,5 +91,6 @@ export async function getStaticProps({ params }) {
       attraction,
       otherAttractions,
     },
+    revalidate: 10, // <- Add this line for ISR: regenerates every 60 seconds
   };
 }

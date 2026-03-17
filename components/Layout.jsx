@@ -33,12 +33,22 @@ export default function Layout({ children }) {
 
       <main className="flex-grow">{children}</main>
 
-      <footer
-        className="py-6 text-center mt-16"
-        style={{ backgroundColor: 'var(--primary-color)', color: darkMode ? '#fff' : '#111827' }}
-      >
-        <p className="text-sm opacity-90">© 2026 New England Travel Hub</p>
-      </footer>
+<footer
+  className="py-6 text-center mt-16"
+  style={{ backgroundColor: 'var(--primary-color)', color: darkMode ? '#fff' : '#111827' }}
+>
+  <p className="text-sm opacity-90">
+    Designed + Developed by{' '}
+    <a
+      href="https://dannyholmanmedia.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="underline hover:opacity-80 transition"
+    >
+      Danny Holman
+    </a>
+  </p>
+</footer>
     </div>
   );
 }
